@@ -18,14 +18,25 @@ void ft_put_first_two_str(char *str)
 	}
 }
 
+void ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
 int main()
 {
-	char c;
-	char str[7]; // String ou chaine de caractere ou phrase
+	char str[124] = "coucoulesamisdfsdfsdfsd fsdfsdf sdf sd fsds"; // String ou chaine de caractere ou phrase
+				// \0 veut dire que c'est la fin de la string (end of string)
       //char *str;
 
-	c = 'a';
-	str = "coucou";
-	ft_put_first_two_str(str);
+	//ft_put_first_two_str(str);
+	ft_putstr(str);
 	return (0);
 }

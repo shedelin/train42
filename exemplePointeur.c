@@ -5,10 +5,17 @@ void ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void ft_prout(int *ptr) 	// je declare une fonction qui s'appel ft_prout, elle prend en parametre un pointeur sur int
+void ft_prout(int *ptr) 	// je declare une fonction qui s'appel ft_prout, 
+				//elle prend en parametre un pointeur sur int
 {				// et ne renvoie rien
-	ft_putchar(*ptr); 	// j'appel la fonction ft_putchar et je lui envoie ce que pointe ptr
-				// *ptr : je vais chercher la valeur de la variable que pointe nbr
+	
+	*ptr = *ptr + 2;	// a gauche du = *ptr : je vais chercher la variable que pointe ptr et 
+				// je lui donne une nouvelle valeur (le resultat du gauche du =
+
+				// a droite du = *ptr : je vais chercher la valeur de la variable que pointe ptr
+	
+	ft_putchar(*ptr);	// J'appel la fonction ft_putchar et je lui envoie la valeur de la variable 
+				// que pointe ptr
 }
 
 int main()
