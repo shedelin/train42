@@ -1,3 +1,10 @@
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void ft_print_half_alphabet(void)
 {
 	char c;
@@ -10,3 +17,8 @@ void ft_print_half_alphabet(void)
 	}
 }
 
+int main()
+{
+	ft_print_half_alphabet();
+	return (0);
+}
