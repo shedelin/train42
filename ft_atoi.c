@@ -46,7 +46,7 @@ int ft_atoi(char *str)
 	int rst;
 	int i;
 	int x;
-	int powerTen;
+	int dizaine;
 	int isNegatif;
 
 	i = 0;
@@ -67,22 +67,22 @@ int ft_atoi(char *str)
 
 	// on gere la partie chiffre et lettre
 	x = i;
-	powerTen = 1;
+	dizaine = 1;
 	// ici on avance une premiere fois pour connaitre la taille du chiffre
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-		powerTen = powerTen * 10;
+		dizaine = dizaine * 10;
 		i++;
 	}
 
-	// powerTen = 10000
-	powerTen = powerTen / 10;
+	// dizaine = 10000
+	dizaine = dizaine / 10;
 	i = x; // je revien au premier chiffre trouve
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-		rst = rst + (str[i] - '0') * powerTen;
+		rst = rst + (str[i] - '0') * dizaine;
 		i++;
-		powerTen = powerTen / 10;
+		dizaine = dizaine / 10;
 	}
 		
 	rst = rst * isNegatif;
@@ -93,7 +93,7 @@ int ft_atoi(char *str)
 int main() // "     +----++--+1234abc567"
 {
 	int rst;
-	char str[] = "     +----++--+1234abc567";
+	char str[] = "     +----++--+4234344abc567";
 
 	rst = ft_atoi(str);
 	ft_putnbr(rst);

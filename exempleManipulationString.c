@@ -1,4 +1,6 @@
 #include <unistd.h>
+#include <stdlib.h>
+
 
 void ft_putchar(char c)
 {
@@ -53,17 +55,150 @@ char *ft_strcpy(char *dest, char *src) 	// je definie une fonction qui s'appel f
 	return (dest);
 }
 
+int ft_str_is_alpha(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!((str[i] >= 'a' && str[i] <= 'z') ||
+			(str[i] >= 'A' && str[i] <= 'Z')) ||
+			(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+
+	return (1);
+}
+
+int ft_str_is_numeric(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+
+	return (1);
+}
+
+int ft_str_is_printable(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] <= 0 && str[i] <= 31)
+			return (0);
+		i++;
+	}
+
+	return (1);
+}
+
+char *ft_strupercase(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
+
+	return (str);
+}
+
+char *ft_strlowcase(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
+		i++;
+	}
+
+	return (str);
+}
+
+char *ft_strcapitalize(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z') ||
+			(str[i] >= 'A' && str[i] <= 'Z') ||
+			(str[i] >= '0' && str[i] <= '9'))
+		{
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - 32;
+			while ((str[i] >= 'a' && str[i] <= 'z') ||
+				(str[i] >= 'A' && str[i] <= 'Z') ||
+				(str[i] >= '0' && str[i] <= '9') &&
+				str[i] != '\0')
+			{
+				if (str[i] >= 'A' && str[i] <= 'Z')
+					str[i] = str[i] + 32;
+				i++;
+			}
+
+		}
+		if (str[i] != '\0')
+			i++;
+	}
+
+	return (str);
+}
+
 int main()
 {
-	char str1[124] = "hello world !"; 	// je creer une string str1 qui peut contenir 124 lettres
+	char str1[124] = "helloworld"; 	// je creer une string str1 qui peut contenir 124 lettres
 	char str2[124];
 						// et je donne a la string str1 la valeur "hello world !"
-	//int rst;
+	int rst;
 
-	//ft_putstr(str1); // j'appelle la fonction ft_putstr et je lui envoie une string str1
-	//rst = ft_strlen(str1); // la variable rst stocke ce que renvoie la fonction ft_strlen
-	//ft_putchar(rst); // j'affiche la valeur ascii de la variable rst (ex: 42 vaut caractere '*')
+	ft_putstr(str1); // j'appelle la fonction ft_putstr et je lui envoie une string str1
+	rst = ft_strlen(str1); // la variable rst stocke ce que renvoie la fonction ft_strlen
+	ft_putchar(rst); // j'affiche la valeur ascii de la variable rst (ex: 42 vaut caractere '*')
 	
-	ft_putstr(ft_strcpy(str2, str1)); // ft_putstr recupere ce que renvoie ft_strcpy(dest) et l'affiche
+	// ft_putstr(ft_strcpy(str2, str1)); // ft_putstr recupere ce que renvoie ft_strcpy(dest) et l'affiche
+
+	int rst;
+
+	rst = ft_str_is_alpha(""); // str[0] vaut '\0'
+	if (rst == 1)
+		ft_putchar('F');
+	else
+		ft_putchar('V');
+
+
+	ft_putstr(ft_strupercase(str1));
 	return (0);
 }
+
+// int main()
+// {
+// 	char str[] = "salut, comment tu vas ? 42mots quarante-deux mot; cinquante+et+un";
+// 	char *str1;
+
+// 	str1 = malloc(sizeof(char) * 124);
+
+// 	str1 = ft_strcapitalize(str);
+
+// 	ft_putstr(str1);
+
+// 	return (0);
+//}

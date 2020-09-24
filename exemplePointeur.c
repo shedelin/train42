@@ -26,7 +26,7 @@ int main()
 	nb = 67; 	// je donne la valeur 67 a la variable nb // 67 c'est le caractere C(table Ascii)
 	ptr = &nb; 	// je fais pointer le pointeur ptr sur la variable nb(qui est un int) 
 			//(&nb est l'adresse dans la memoire de la variable nb)
-	ft_prout(ptr); 	// j'apelle la fontion ft_prout et je lui envoie le pointeur ptr (pointeur sur un int)
+	ft_prout(ptr); 	// j'apelle la fonction ft_prout et je lui envoie le pointeur ptr (pointeur sur un int)
 
 	return (0);
 }

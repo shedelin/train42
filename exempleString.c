@@ -37,6 +37,7 @@ int main()
       //char *str;
 
 	ft_put_first_two_str(str);
+	ft_putstr("coucou");
 	//ft_putstr(str);
 	return (0);
 }
